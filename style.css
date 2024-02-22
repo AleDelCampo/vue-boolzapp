@@ -53,6 +53,9 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
     width: 100%;
     height: 70px;
     background-color: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .contacts-container {
@@ -62,8 +65,36 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
     overflow-y: scroll;
 }
 
+.search-container {
+    width: 100%;
+    height: 46px;
+    padding: 6px;
+    display: flex;
+    background-color: #eaeaea;
+}
+
+.message-container {
+    width: 80%;
+}
+
+.bell {
+    color: #8edafc;
+    font-size: 20px;
+}
+
+.bell-round {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
 .icons {
-    font-size: 26px;
+    font-size: 24px;
     color: #b1b1b1;
 }
 
@@ -87,6 +118,7 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
 #my-access {
     margin-left: 4px;
     color: #8e8daa;
+    font-size: 0.8em;
 }
 
 #chat {
@@ -101,13 +133,10 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
 #active-notification {
     width: 100%;
     height: 80px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
     background-color: #8edafc;
-}
-
-#search-contacts {
-    width: 100%;
-    height: 46px;
-    background-color: #eaeaea;
 }
 
 #chat-interface {
@@ -115,6 +144,52 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
     height: calc(96vh - 140px);
     background-image: url(img/mine.jpg);
     overflow-y: scroll;
+}
+
+#search-contact {
+    width: 20%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+#active-notification .column-container #my-access {
+    text-decoration: underline;
+}
+
+#search-contact .icons {
+    font-size: 18px;
+}
+
+#search-contacts {
+    width: 80%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    border-left: 1px solid #d9d9d9;
+    color: #8e8daa;
+    font-size: 0.8em;
+    background-color: white;
+}
+
+#search-input {
+    width: 100%;
+    padding: 4px;
+    border-style: none;
+    outline: none;
+    color: #8e8daa;
+}
+
+#message-input {
+    width: 100%;
+    height: 40px;
+    padding: 4px;
+    border-radius: 12px;
+    border-style: none;
+    outline: none;
+    color: #8e8daa;
 }
 
 
@@ -147,13 +222,13 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
 .green-side {
     background-color: #009688;
     width: 100%;
-    height: 14vh;
+    height: 18vh;
 }
 
 .grey-side {
     background-color: #d8dbd5;
     width: 100%;
-    height: 86vh;
+    height: 82vh;
 }
 
 
