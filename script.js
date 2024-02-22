@@ -2,29 +2,179 @@ const app = Vue.createApp({
     data() {
       return {
         contacts: [
-          { name: 'Pippo', lastAccess: '2 hours ago', avatar: 'img/avatar_1.jpg' },
-          { name: 'Pluto', lastAccess: '1 day ago', avatar: 'img/avatar_2.jpg' },
-          { name: 'Plutino', lastAccess: '1 week ago', avatar: 'img/avatar_3.jpg' },
-          { name: 'Plutarco', lastAccess: '1 month ago', avatar: 'img/avatar_4.jpg' },
-          { name: 'Plutin', lastAccess: '3 weeks ago', avatar: 'img/avatar_8.jpg' },
-          { name: 'Plauto', lastAccess: '1 week ago', avatar: 'img/avatar_5.jpg' },
-          { name: 'Aran', lastAccess: '2 minutes ago', avatar: 'img/avatar_2.jpg' },
-          { name: 'Cino', lastAccess: '4 days ago', avatar: 'img/avatar_7.jpg' },
-          { name: 'Plaola', lastAccess: 'Online', avatar: 'img/avatar_6.jpg' },
-          { name: 'Plalutena', lastAccess: '2 weeks ago', avatar: 'img/avatar_io.jpg' },
+          { name: 'Pippo', lastAccess: '2 hours ago', avatar: 'img/avatar_1.jpg',
+          messages: [
+            {
+                date: '20/03/2020 16:30:00',
+                message: 'Ciao come stai?',
+                status: 'sent'
+            },
+            {
+                date: '20/03/2020 16:30:55',
+                message: 'Bene grazie! Stasera ci vediamo?',
+                status: 'received'
+            },
+            {
+                date: '20/03/2020 16:35:00',
+                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                status: 'sent'
+            }
         ],
-        chats: [
-            { message: 'Pippo', date: '2 hours ago', status: 'img/avatar_1.jpg' },
-            { message: 'Pluto', date: '1 day ago', status: 'img/avatar_2.jpg' },
-            { message: 'Plutino', date: '1 week ago', status: 'img/avatar_3.jpg' },
-            { message: 'Plutarco', date: '1 month ago', status: 'img/avatar_4.jpg' },
-            { message: 'Plutin', date: '3 weeks ago', status: 'img/avatar_8.jpg' },
-            { message: 'Plauto', date: '1 week ago', status: 'img/avatar_5.jpg' },
-            { message: 'Aran', date: '2 minutes ago', status: 'img/avatar_2.jpg' },
-            { message: 'Cino', date: '4 days ago', status: 'img/avatar_7.jpg' },
-            { message: 'Plaola', date: 'Online', status: 'img/avatar_6.jpg' },
-            { message: 'Plalutena', date: '2 weeks ago', status: 'img/avatar_io.jpg' },
-          ],
+ },
+          { name: 'Pluto', lastAccess: '1 day ago', avatar: 'img/avatar_2.jpg', messages: [
+            {
+                date: '20/03/2020 16:30:00',
+                message: 'Ciao come stai?',
+                status: 'sent'
+            },
+            {
+                date: '20/03/2020 16:30:55',
+                message: 'Bene grazie! Stasera ci vediamo?',
+                status: 'received'
+            },
+            {
+                date: '20/03/2020 16:35:00',
+                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                status: 'sent'
+            }
+        ],},
+          { name: 'Plutino', lastAccess: '1 week ago', avatar: 'img/avatar_3.jpg', messages: [
+            {
+                date: '20/03/2020 16:30:00',
+                message: 'Ciao come stai?',
+                status: 'sent'
+            },
+            {
+                date: '20/03/2020 16:30:55',
+                message: 'Bene grazie! Stasera ci vediamo?',
+                status: 'received'
+            },
+            {
+                date: '20/03/2020 16:35:00',
+                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                status: 'sent'
+            }
+        ],},
+          { name: 'Plutarco', lastAccess: '1 month ago', avatar: 'img/avatar_4.jpg', messages: [
+            {
+                date: '20/03/2020 16:30:00',
+                message: 'Ciao come stai?',
+                status: 'sent'
+            },
+            {
+                date: '20/03/2020 16:30:55',
+                message: 'Bene grazie! Stasera ci vediamo?',
+                status: 'received'
+            },
+            {
+                date: '20/03/2020 16:35:00',
+                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                status: 'sent'
+            }
+        ],},
+          { name: 'Plutin', lastAccess: '3 weeks ago', avatar: 'img/avatar_8.jpg', messages: [
+            {
+                date: '20/03/2020 16:30:00',
+                message: 'Ciao come stai?',
+                status: 'sent'
+            },
+            {
+                date: '20/03/2020 16:30:55',
+                message: 'Bene grazie! Stasera ci vediamo?',
+                status: 'received'
+            },
+            {
+                date: '20/03/2020 16:35:00',
+                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                status: 'sent'
+            }
+        ],},
+          { name: 'Plauto', lastAccess: '1 week ago', avatar: 'img/avatar_5.jpg', messages: [
+            {
+                date: '20/03/2020 16:30:00',
+                message: 'Ciao come stai?',
+                status: 'sent'
+            },
+            {
+                date: '20/03/2020 16:30:55',
+                message: 'Bene grazie! Stasera ci vediamo?',
+                status: 'received'
+            },
+            {
+                date: '20/03/2020 16:35:00',
+                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                status: 'sent'
+            }
+        ],},
+          { name: 'Aran', lastAccess: '2 minutes ago', avatar: 'img/avatar_2.jpg', messages: [
+            {
+                date: '20/03/2020 16:30:00',
+                message: 'Ciao come stai?',
+                status: 'sent'
+            },
+            {
+                date: '20/03/2020 16:30:55',
+                message: 'Bene grazie! Stasera ci vediamo?',
+                status: 'received'
+            },
+            {
+                date: '20/03/2020 16:35:00',
+                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                status: 'sent'
+            }
+        ],},
+          { name: 'Cino', lastAccess: '4 days ago', avatar: 'img/avatar_7.jpg', messages: [
+            {
+                date: '20/03/2020 16:30:00',
+                message: 'Ciao come stai?',
+                status: 'sent'
+            },
+            {
+                date: '20/03/2020 16:30:55',
+                message: 'Bene grazie! Stasera ci vediamo?',
+                status: 'received'
+            },
+            {
+                date: '20/03/2020 16:35:00',
+                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                status: 'sent'
+            }
+        ],},
+          { name: 'Plaola', lastAccess: 'Online', avatar: 'img/avatar_6.jpg', messages: [
+            {
+                date: '20/03/2020 16:30:00',
+                message: 'Ciao come stai?',
+                status: 'sent'
+            },
+            {
+                date: '20/03/2020 16:30:55',
+                message: 'Bene grazie! Stasera ci vediamo?',
+                status: 'received'
+            },
+            {
+                date: '20/03/2020 16:35:00',
+                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                status: 'sent'
+            }
+        ],},
+          { name: 'Plalutena', lastAccess: '2 weeks ago', avatar: 'img/avatar_io.jpg', messages: [
+            {
+                date: '20/03/2020 16:30:00',
+                message: 'Ciao come stai?',
+                status: 'sent'
+            },
+            {
+                date: '20/03/2020 16:30:55',
+                message: 'Bene grazie! Stasera ci vediamo?',
+                status: 'received'
+            },
+            {
+                date: '20/03/2020 16:35:00',
+                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                status: 'sent'
+            }
+        ],},
+        ],
       };
     }, methods: {
         showContact(contact) {
@@ -36,8 +186,15 @@ const app = Vue.createApp({
                 <span class="last-show m-4">${contact.lastAccess}</span>
                 </div>
             `;
-        }
-    }
-});
+            const messageElement = document.getElementById("messages");
+            let messagesHTML = '';
+            contact.messages.forEach(message => {
+              messagesHTML += 
+                `<div class="column-container">
+                <span class="m-4">${message.message}</span>
+                </div>`;  
+          });
+            messageElement.innerHTML = messagesHTML;
+}}});
 
 app.mount('#app');
