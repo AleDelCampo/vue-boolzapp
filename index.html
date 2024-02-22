@@ -41,12 +41,14 @@
                 <div id="active-notification">
 
                     <div class="bell-round">
+
                         <i class="bell fa-solid fa-bell-slash"></i>
+
                     </div>
                     
                     <div class="column-container">
 
-                        <span id="my-name">Ricevi notifiche di nuovvi messaggi.</span>
+                        <span id="my-name">Ricevi notifiche di nuovi messaggi.</span>
 
                         <span id="my-access">Attiva notifiche Desktop.</span>
 
@@ -69,17 +71,29 @@
                 </div>
 
 
-                <div class="contacts-container">
+                <div id="app" class="contacts-container">
 
+                    <div v-for="(contact, index) in contacts" class="contact">
+
+                      <img class="avatar"
+                        :src="contact.avatar"
+                        :alt="contact.name">
+                        <div class="column-container">
+
+                        <span class="contact-name">{{ contact.name }}</span>
+
+                        <span class="last-show">{{ contact.lastAccess }}</span>
+
+                      </div>
+                    </div>
                 </div>
-
             </aside>
 
             <main id="chat">
 
                 <div id="friend-account" class="top-accounts">
 
-                    <div class="aside-top-account">
+                    <div class="aside-right-top-account">
 
                         <img class="avatar" src="img/avatar_7.jpg" alt="Avatar">
     

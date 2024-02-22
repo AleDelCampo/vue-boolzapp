@@ -70,32 +70,11 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
     height: 46px;
     padding: 6px;
     display: flex;
-    background-color: #eaeaea;
+    background-color: #e9ebeb;
 }
 
 .message-container {
     width: 80%;
-}
-
-.bell {
-    color: #8edafc;
-    font-size: 20px;
-}
-
-.bell-round {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-}
-
-.icons {
-    font-size: 24px;
-    color: #b1b1b1;
 }
 
 .icons-container {
@@ -208,7 +187,20 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
     justify-content: center;
 }
 
-.aside-top-account {
+.contact {
+    display: flex;
+    align-items: center;
+    padding: 6px 8px 6px 8px;
+    font-size: 0.8em;
+    background-color: white;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.contact:hover {
+    background-color: #e9ebeb;
+}
+
+.aside-top-account, .aside-right-top-account {
     display: flex;
     align-items: center;
 }
@@ -217,6 +209,33 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
     width: 54px;
     border-radius: 50%;
     margin-left: 12px;
+}
+
+
+.bell {
+    color: #8edafc;
+    font-size: 20px;
+}
+
+.bell-round {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.icons {
+    font-size: 24px;
+    color: #b1b1b1;
+}
+
+.last-show {
+    color: #d5cdd0;
+    font-size: 0.8em;
 }
 
 .green-side {
@@ -230,14 +249,3 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
     width: 100%;
     height: 82vh;
 }
-
-
-
-
-
-
-
-
-
-
-
