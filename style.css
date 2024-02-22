@@ -20,23 +20,25 @@ Risposta dall’interlocutore: ad ogni inserimento di un messaggio,
 l’utente riceverà un “ok” come risposta, che apparirà dopo
 1 secondo.
 */
-
+/*RESET-RULE*/
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
-.green-side {
-    background-color: #009688;
-    width: 100%;
-    height: 16vh;
+
+/*CONTAINERS*/
+.row-container {
+    display: flex;
+    flex-direction: row;
 }
 
-.grey-side {
-    background-color: #d8dbd5;
-    width: 100%;
-    height: 84vh;
+.column-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .app-container {
@@ -46,31 +48,54 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
     position: absolute;
 }
 
-.my-display {
-    display: flex;
-    justify-content: center;
+.input-container {
+    border-left: 1px solid #d9d9d9;
+    width: 100%;
+    height: 70px;
+    background-color: #eaeaea;
 }
 
-.container {
-    display: flex;
+.contacts-container {
+    width: 100%;
+    height: calc(96vh - 196px);
+    background-color: #eaeaea;
+    overflow-y: scroll;
 }
 
+.icons {
+    font-size: 26px;
+    color: #b1b1b1;
+}
+
+.icons-container {
+    display: flex;
+    gap: 20px;
+    margin-right: 40px;
+}
+
+
+/*ID'S*/
 #sidebar {
     width: 36%;
-    height: 96vh;
-    background-color: chartreuse;
+    height: 96vh;   
+}
+
+#my-name {
+    margin-left: 4px;
+}
+
+#my-access {
+    margin-left: 4px;
+    color: #8e8daa;
 }
 
 #chat {
     width: 64%;
     height: 96vh;
-    background-color: chocolate;
 }
 
-.top-accounts {
-    width: 100%;
-    height: 70px;
-    background-color: #eaeaea;
+#friend-account {
+    border-left: 1px solid #d9d9d9;
 }
 
 #active-notification {
@@ -79,12 +104,65 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
     background-color: #8edafc;
 }
 
-#personal-account {
-    border-right: 1px solid #d9d9d9;
+#search-contacts {
+    width: 100%;
+    height: 46px;
+    background-color: #eaeaea;
 }
 
-.try {
+#chat-interface {
+    width: 100%;
+    height: calc(96vh - 140px);
+    background-image: url(img/mine.jpg);
+    overflow-y: scroll;
+}
+
+
+/*CLASSESS*/
+.top-accounts {
+    width: 100%;
+    height: 70px;
+    background-color: #eaeaea;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
 }
+
+.my-display {
+    display: flex;
+    justify-content: center;
+}
+
+.aside-top-account {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 54px;
+    border-radius: 50%;
+    margin-left: 12px;
+}
+
+.green-side {
+    background-color: #009688;
+    width: 100%;
+    height: 14vh;
+}
+
+.grey-side {
+    background-color: #d8dbd5;
+    width: 100%;
+    height: 86vh;
+}
+
+
+
+
+
+
+
+
+
+
+
