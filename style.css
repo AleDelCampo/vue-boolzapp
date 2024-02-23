@@ -194,6 +194,7 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
     font-size: 0.8em;
     background-color: white;
     border-bottom: 1px solid #eaeaea;
+    cursor: pointer;
 }
 
 .change-contact {
@@ -242,7 +243,7 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
 
 .last-show {
     color: #d5cdd0;
-    font-size: 0.8em;
+    font-size: 1em;
 }
 
 .m-4 {

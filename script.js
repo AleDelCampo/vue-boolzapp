@@ -2,29 +2,8 @@ const app = Vue.createApp({
     data() {
       return {
         contacts: [
-          { name: 'Pippo', lastAccess: '2 hours ago', avatar: 'img/avatar_1.jpg',
-          messages: [
-            {
-                date: '20/03/2020 16:30:00',
-                message: 'Ciao come stai?',
-                time: '12:00',
-                status: 'sent'
-            },
-            {
-                date: '20/03/2020 16:30:55',
-                message: 'Bene grazie! Stasera ci vediamo?',
-                time: '12:00',
-                status: 'received'
-            },
-            {
-                date: '20/03/2020 16:35:00',
-                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                time: '12:00',
-                status: 'sent'
-            }
-        ],
- },
-          { name: 'Pluto', lastAccess: '1 day ago', avatar: 'img/avatar_2.jpg', messages: [
+            { name: 'Pippo', lastAccess: '2 hours ago', avatar: 'img/avatar_1.jpg',
+            messages: [
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
@@ -44,7 +23,7 @@ const app = Vue.createApp({
                 status: 'sent'
             }
         ],},
-          { name: 'Plutino', lastAccess: '1 week ago', avatar: 'img/avatar_3.jpg', messages: [
+            { name: 'Pluto', lastAccess: '1 day ago', avatar: 'img/avatar_2.jpg', messages: [
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
@@ -64,7 +43,7 @@ const app = Vue.createApp({
                 status: 'sent'
             }
         ],},
-          { name: 'Plutarco', lastAccess: '1 month ago', avatar: 'img/avatar_4.jpg', messages: [
+            { name: 'Plutino', lastAccess: '1 week ago', avatar: 'img/avatar_3.jpg', messages: [
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
@@ -84,7 +63,7 @@ const app = Vue.createApp({
                 status: 'sent'
             }
         ],},
-          { name: 'Plutin', lastAccess: '3 weeks ago', avatar: 'img/avatar_8.jpg', messages: [
+            { name: 'Plutarco', lastAccess: '1 month ago', avatar: 'img/avatar_4.jpg', messages: [
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
@@ -104,7 +83,7 @@ const app = Vue.createApp({
                 status: 'sent'
             }
         ],},
-          { name: 'Plauto', lastAccess: '1 week ago', avatar: 'img/avatar_5.jpg', messages: [
+            { name: 'Plutin', lastAccess: '3 weeks ago', avatar: 'img/avatar_8.jpg', messages: [
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
@@ -124,7 +103,7 @@ const app = Vue.createApp({
                 status: 'sent'
             }
         ],},
-          { name: 'Aran', lastAccess: '2 minutes ago', avatar: 'img/avatar_2.jpg', messages: [
+            { name: 'Plauto', lastAccess: '1 week ago', avatar: 'img/avatar_5.jpg', messages: [
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
@@ -144,7 +123,27 @@ const app = Vue.createApp({
                 status: 'sent'
             }
         ],},
-          { name: 'Cino', lastAccess: '4 days ago', avatar: 'img/avatar_7.jpg', messages: [
+            { name: 'Aran', lastAccess: '2 minutes ago', avatar: 'img/avatar_2.jpg', messages: [
+            {
+                date: '20/03/2020 16:30:00',
+                message: 'Ciao come stai?',
+                time: '12:00',
+                status: 'sent'
+            },
+            {
+                date: '20/03/2020 16:30:55',
+                message: 'Bene grazie! Stasera ci vediamo?',
+                time: '12:00',
+                status: 'received'
+            },
+            {
+                date: '20/03/2020 16:35:00',
+                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                time: '12:00',
+                status: 'sent'
+            }
+        ],},
+            { name: 'Cino', lastAccess: '4 days ago', avatar: 'img/avatar_7.jpg', messages: [
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
@@ -164,7 +163,7 @@ const app = Vue.createApp({
                 status: 'sent'
             }
         ],},
-          { name: 'Plaola', lastAccess: 'Online', avatar: 'img/avatar_6.jpg', messages: [
+            { name: 'Plaola', lastAccess: 'Online', avatar: 'img/avatar_6.jpg', messages: [
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
@@ -184,7 +183,47 @@ const app = Vue.createApp({
                 status: 'sent'
             }
         ],},
-          { name: 'Plalutena', lastAccess: '2 weeks ago', avatar: 'img/avatar_io.jpg', messages: [
+            { name: 'Plalutena', lastAccess: '2 weeks ago', avatar: 'img/avatar_io.jpg', messages: [
+            {
+                date: '20/03/2020 16:30:00',
+                message: 'Ciao come stai?',
+                time: '12:00',
+                status: 'sent'
+            },
+            {
+                date: '20/03/2020 16:30:55',
+                message: 'Bene grazie! Stasera ci vediamo?',
+                time: '12:00',
+                status: 'received'
+            },
+            {
+                date: '20/03/2020 16:35:00',
+                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                time: '12:00',
+                status: 'sent'
+            }
+        ],},
+            { name: 'Plalutena', lastAccess: '2 weeks ago', avatar: 'img/avatar_io.jpg', messages: [
+            {
+                date: '20/03/2020 16:30:00',
+                message: 'Ciao come stai?',
+                time: '12:00',
+                status: 'sent'
+            },
+            {
+                date: '20/03/2020 16:30:55',
+                message: 'Bene grazie! Stasera ci vediamo?',
+                time: '12:00',
+                status: 'received'
+            },
+            {
+                date: '20/03/2020 16:35:00',
+                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                time: '12:00',
+                status: 'sent'
+            }
+        ],},
+            { name: 'Plalutena', lastAccess: '2 weeks ago', avatar: 'img/avatar_io.jpg', messages: [
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
@@ -230,3 +269,35 @@ const app = Vue.createApp({
 }}});
 
 app.mount('#app');
+
+document.addEventListener("DOMContentLoaded", function() {
+    const messageInput = document.getElementById("message-input");
+    const chatInterface = document.getElementById("messages");
+
+    messageInput.addEventListener("keypress", function(event) {
+        if (event.key === 'Enter') {
+            const messageContent = this.value.trim();
+            if (messageContent !== '') {
+                appendMessage(messageContent, 'sent');
+                this.value = '';
+                setTimeout(function() {
+                    appendMessage('OK', 'received');
+                }, 1000);
+            }
+        }
+    });
+
+    function appendMessage(message, status) {
+        const messageClass = status === 'sent' ? 'sent-message' : 'received-message';
+        const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        const messageHTML = `
+            <div class="column-container ${messageClass}">
+                <span class="m-4">${message}</span>
+                <span class="m-4 msg-time">${currentTime}</span>
+            </div>
+        `;
+
+        chatInterface.insertAdjacentHTML('beforeend', messageHTML);
+    }
+});
