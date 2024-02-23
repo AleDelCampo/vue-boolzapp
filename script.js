@@ -7,16 +7,19 @@ const app = Vue.createApp({
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
+                time: '12:00',
                 status: 'sent'
             },
             {
                 date: '20/03/2020 16:30:55',
                 message: 'Bene grazie! Stasera ci vediamo?',
+                time: '12:00',
                 status: 'received'
             },
             {
                 date: '20/03/2020 16:35:00',
                 message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                time: '12:00',
                 status: 'sent'
             }
         ],
@@ -25,16 +28,19 @@ const app = Vue.createApp({
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
+                time: '12:00',
                 status: 'sent'
             },
             {
                 date: '20/03/2020 16:30:55',
                 message: 'Bene grazie! Stasera ci vediamo?',
+                time: '12:00',
                 status: 'received'
             },
             {
                 date: '20/03/2020 16:35:00',
                 message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                time: '12:00',
                 status: 'sent'
             }
         ],},
@@ -42,16 +48,19 @@ const app = Vue.createApp({
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
+                time: '12:00',
                 status: 'sent'
             },
             {
                 date: '20/03/2020 16:30:55',
                 message: 'Bene grazie! Stasera ci vediamo?',
+                time: '12:00',
                 status: 'received'
             },
             {
                 date: '20/03/2020 16:35:00',
                 message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                time: '12:00',
                 status: 'sent'
             }
         ],},
@@ -59,16 +68,19 @@ const app = Vue.createApp({
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
+                time: '12:00',
                 status: 'sent'
             },
             {
                 date: '20/03/2020 16:30:55',
                 message: 'Bene grazie! Stasera ci vediamo?',
+                time: '12:00',
                 status: 'received'
             },
             {
                 date: '20/03/2020 16:35:00',
                 message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                time: '12:00',
                 status: 'sent'
             }
         ],},
@@ -76,16 +88,19 @@ const app = Vue.createApp({
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
+                time: '12:00',
                 status: 'sent'
             },
             {
                 date: '20/03/2020 16:30:55',
                 message: 'Bene grazie! Stasera ci vediamo?',
+                time: '12:00',
                 status: 'received'
             },
             {
                 date: '20/03/2020 16:35:00',
                 message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                time: '12:00',
                 status: 'sent'
             }
         ],},
@@ -93,16 +108,19 @@ const app = Vue.createApp({
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
+                time: '12:00',
                 status: 'sent'
             },
             {
                 date: '20/03/2020 16:30:55',
                 message: 'Bene grazie! Stasera ci vediamo?',
+                time: '12:00',
                 status: 'received'
             },
             {
                 date: '20/03/2020 16:35:00',
                 message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                time: '12:00',
                 status: 'sent'
             }
         ],},
@@ -110,16 +128,19 @@ const app = Vue.createApp({
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
+                time: '12:00',
                 status: 'sent'
             },
             {
                 date: '20/03/2020 16:30:55',
                 message: 'Bene grazie! Stasera ci vediamo?',
+                time: '12:00',
                 status: 'received'
             },
             {
                 date: '20/03/2020 16:35:00',
                 message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                time: '12:00',
                 status: 'sent'
             }
         ],},
@@ -127,16 +148,19 @@ const app = Vue.createApp({
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
-                status: 'sent'
+                time: '12:00',
+                status: 'received'
             },
             {
                 date: '20/03/2020 16:30:55',
                 message: 'Bene grazie! Stasera ci vediamo?',
+                time: '12:00',
                 status: 'received'
             },
             {
                 date: '20/03/2020 16:35:00',
                 message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                time: '12:00',
                 status: 'sent'
             }
         ],},
@@ -144,16 +168,19 @@ const app = Vue.createApp({
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
+                time: '12:00',
                 status: 'sent'
             },
             {
                 date: '20/03/2020 16:30:55',
                 message: 'Bene grazie! Stasera ci vediamo?',
-                status: 'received'
+                time: '12:00',
+                status: 'sent'
             },
             {
                 date: '20/03/2020 16:35:00',
                 message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                time: '12:00',
                 status: 'sent'
             }
         ],},
@@ -161,16 +188,19 @@ const app = Vue.createApp({
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
+                time: '12:00',
                 status: 'sent'
             },
             {
                 date: '20/03/2020 16:30:55',
                 message: 'Bene grazie! Stasera ci vediamo?',
+                time: '12:00',
                 status: 'received'
             },
             {
                 date: '20/03/2020 16:35:00',
                 message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                time: '12:00',
                 status: 'sent'
             }
         ],},
@@ -189,9 +219,11 @@ const app = Vue.createApp({
             const messageElement = document.getElementById("messages");
             let messagesHTML = '';
             contact.messages.forEach(message => {
-              messagesHTML += 
-                `<div class="column-container">
+                const messageClass = message.status === 'sent' ? 'sent-message' : 'received-message';
+                messagesHTML += 
+                `<div class="column-container ${messageClass}">
                 <span class="m-4">${message.message}</span>
+                <span class="m-4 msg-time">${message.time}</span>
                 </div>`;  
           });
             messageElement.innerHTML = messagesHTML;

@@ -1,15 +1,4 @@
 /*
-Milestone 1
-Replica della grafica con la possibilità di avere messaggi scritti
-dall’utente (verdi) e dall’interlocutore (bianco) assegnando due
-classi CSS diverse
-
-Milestone 2
-Visualizzazione dinamica dei messaggi: tramite la direttiva v-for,
-visualizzare tutti i messaggi relativi al contatto attivo 
-all’interno del pannello della conversazione
-Click sul contatto mostra la conversazione del contatto cliccato.
-
 Milestone 3
 Aggiunta di un messaggio: l’utente scrive un testo nella parte 
 bassa e digitando “enter” il testo viene aggiunto al thread sopra,
@@ -126,13 +115,6 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
     background-color: #8edafc;
 }
 
-#chat-interface {
-    width: 100%;
-    height: calc(96vh - 140px);
-    background-image: url(img/mine.jpg);
-    overflow-y: scroll;
-}
-
 #search-contact {
     width: 20%;
     height: 90%;
@@ -179,6 +161,16 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
     color: #8e8daa;
 }
 
+#chat-interface {
+    width: 100%;
+    height: calc(96vh - 140px);
+    background-image: url(img/mine.jpg);
+    overflow-y: scroll;
+    display: flex;
+    justify-content: right;
+    padding: 40px;
+    position: relative;
+}
 
 /*CLASSESS*/
 .top-accounts {
@@ -267,4 +259,37 @@ l’utente riceverà un “ok” come risposta, che apparirà dopo
     background-color: #d8dbd5;
     width: 100%;
     height: 82vh;
+}
+
+.sent-message {
+    display: flex;
+    justify-content: center;
+    min-height: 40px;
+    max-width: 240px;
+    padding: 8px 8px 0px 0px;
+    background-color: #d5f9ba;
+    text-wrap: wrap;
+    font-size: 0.8em;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.received-message {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 8px 8px 0px 0px;
+    right: 650px;
+    min-height: 40px;
+    background-color: #ffffff;
+    font-size: 0.8em;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.msg-time {
+    color:#d5cdd0;
+    align-self: self-end;
+    margin-right: 4px;
+    font-size: 0.7em;
 }
