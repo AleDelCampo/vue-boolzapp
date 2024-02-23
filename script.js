@@ -301,3 +301,15 @@ document.addEventListener("DOMContentLoaded", function() {
         chatInterface.insertAdjacentHTML('beforeend', messageHTML);
     }
 });
+
+function filterContacts(searchTerm) {
+    const contacts = document.querySelectorAll('.contact');
+    contacts.forEach(contact => {
+        const name = contact.querySelector('.contact-name').innerText.toLowerCase();
+        if (name.includes(searchTerm.toLowerCase())) {
+            contact.style.display = 'flex';
+        } else {
+            contact.style.display = 'none';
+        }
+    });
+}
