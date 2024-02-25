@@ -246,6 +246,14 @@ const app = Vue.createApp({
         ],
       };
     }, methods: {
+        getLastMessage(contact) {
+            const lastMessage = contact.messages[contact.messages.length - 1];
+            if (lastMessage) {
+                return `${lastMessage.status === 'sent' ? 'Sent: ' : 'Received: '} ${lastMessage.message}`;
+            } else {
+                return 'No messages';
+            }/*da vedere bene ancora*/
+        },
         showContact(contact) {
             const changeContactElement = document.getElementById("switch");
             changeContactElement.innerHTML = `
@@ -268,36 +276,19 @@ const app = Vue.createApp({
                 <span class="m-4 msg-time">${message.time}</span>
                 </div>`;
           });
-            messageElement.innerHTML = messagesHTML;
-
+            messageElement.innerHTML = messagesHTML;    
             
 }}});
 
 app.mount('#app');
 
 document.addEventListener("DOMContentLoaded", function() {
-    let messageSent = false;
-
     const messageInput = document.getElementById("message-input");
+    const micIcon = document.getElementById("mic-icon");
+    const sendIcon = document.getElementById("send-icon");
     const chatInterface = document.getElementById("messages");
 
-    messageInput.addEventListener("keypress", function(answer) {
-        if (answer.key === 'Enter') {
-            const messageContent = this.value.trim();
-            if (messageContent !== '') {
-                appendMessage(messageContent, 'sent');
-                this.value = '';
-                messageSent = true;
-
-                setTimeout(function() {
-                    if (messageSent) {
-                        appendMessage('OK', 'received');
-                        messageSent = false;
-                    }
-                }, 1000);
-            }
-        }
-    });
+    let messageSent = false;
 
     function appendMessage(message, status) {
         const messageClass = status === 'sent' ? 'sent-message' : 'received-message';
@@ -312,22 +303,56 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>`;
 
         chatInterface.innerHTML += ('beforeend', messageHTML);
-
-        const deleteButtons = document.querySelectorAll('#deleteButton');
-        deleteButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const messageContainer = this.closest('.column-container');
-                messageContainer.style.display = 'none';
-            });
-        });
     }
 
-    document.querySelectorAll('.contact').forEach(contact => {
-        contact.addEventListener('click', function() {
-            setTimeout(function() {
-                messageSent = false;
-            }, 100);
-        });
+    messageInput.addEventListener("input", function() {
+        if (this.value.trim() === "") {
+            micIcon.style.display = "inline-block"; 
+            sendIcon.style.display = "none";
+        } else {
+            micIcon.style.display = "none";
+            sendIcon.style.display = "inline-block";
+        }
+    });
+
+    
+    sendIcon.addEventListener("click", function() {
+        const messageContent = messageInput.value.trim();
+        if (messageContent !== '') {
+            appendMessage(messageContent, 'sent');
+            messageInput.value = '';
+            messageSent = true;
+        }
+    });
+
+    messageInput.addEventListener("keypress", function(sending) {
+        if (sending.key === "Enter") {
+            micIcon.style.display = "inline-block";
+            sendIcon.style.display = "none";
+            const messageContent = messageInput.value.trim();
+            if (messageContent !== '') {
+                messageSent = true;
+                appendMessage(messageContent, 'sent');
+                messageInput.value = '';
+            }
+        }
+    });
+
+    const randomResponses = ['Va bene', 'Capito', 'Perfetto', 'Ho capito'];
+
+    setInterval(function() {
+        if (messageSent) {
+            const randomIndex = Math.floor(Math.random() * randomResponses.length);
+            appendMessage(randomResponses[randomIndex], 'received');
+            messageSent = false;
+        }
+    }, 1000);
+
+    messageInput.addEventListener("input", function() {
+        if (this.value === "") {
+            micIcon.style.display = "inline-block";
+            sendIcon.style.display = "none";
+        }
     });
 });
 
@@ -377,9 +402,34 @@ document.addEventListener("DOMContentLoaded", function() {
         if (event.key === "Enter" && mySelectedContact === null) {
             const messageContent = this.value.trim();
             if (messageContent !== "") {
-                console.log(`Invia messaggio: "${messageContent}"`);
                 this.value = "";
             }
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    let themeToggled = false;
+
+    const changeThemeButton = document.getElementById("toggle-button");
+    const bottomSide = document.getElementById("bottom-side");
+    const personalAccount = document.getElementById("personal-account");
+    const friendAccount= document.getElementById("friend-account");
+    const inputCnt= document.getElementById("input-cnt");
+
+    changeThemeButton.addEventListener("click", function() {
+        if (!themeToggled) {
+            bottomSide.classList.add("toggle-theme");
+            personalAccount.classList.add("toggle-theme");
+            friendAccount.classList.add("toggle-theme");
+            inputCnt.classList.add("toggle-theme");
+            themeToggled = true;
+        } else {
+            bottomSide.classList.remove("toggle-theme");
+            personalAccount.classList.remove("toggle-theme");
+            friendAccount.classList.remove("toggle-theme");
+            inputCnt.classList.remove("toggle-theme");
+            themeToggled = false;
         }
     });
 });

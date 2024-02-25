@@ -63,6 +63,7 @@
 
                     <div id="search-contacts">
                         <input type="text" id="search-input" oninput="filterContacts(this.value)" placeholder="Cerca o inizia una nuova chat.">
+                        <button id="toggle-button" @click="changeTheme">Cambia tema</button>
                     </div>
 
                 </div>
@@ -74,7 +75,7 @@
                         <img class="avatar" :src="contact.avatar" :alt="contact.name">
                         <div class="column-container">
                             <span class="contact-name">{{ contact.name }}</span>
-                            <span class="last-show">{{ contact.lastAccess }}</span>
+                            <span class="last-show">{{ getLastMessage(contact) }}</span> <!--da vedere bene ancora-->
                         </div>
                     </div>
                 </div>
@@ -109,17 +110,18 @@
                 </div>
 
 
-                <div class="input-container" class="top-accounts">
+                <div id="input-cnt" class="input-container">
                     <div>
                         <i class="icons fa-regular fa-face-smile"></i>
                     </div>
 
                     <div class="message-container">
-                        <input type="text" id="message-input" placeholder="Scrivi qui il tuo messaggio....">
+                        <input type="text" id="message-input" placeholder="Seleziona un contatto....">
                     </div>
 
                     <div>
-                        <i class="icons fa-solid fa-microphone"></i>
+                        <i id="send-icon" class="icons fas fa-paper-plane" style="display: none;" onclick="sendMessage()"></i>
+                        <i id="mic-icon" class="icons fas fa-microphone"></i>
                     </div>   
                 </div>  
 
@@ -128,7 +130,7 @@
         </div>  
     </div>
 
-    <div class="grey-side">
+    <div id="bottom-side" class="grey-side">
     </div>
 
     <script src="https://unpkg.com/vue@3"></script>
