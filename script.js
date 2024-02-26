@@ -281,7 +281,13 @@ const app = Vue.createApp({
         },
         // Metodo per visualizzare i messaggi di un contatto selezionato
         showContact(contact) {
+            const index = this.contacts.indexOf(contact);
             
+            if (index !== -1) {
+            const removedContact = this.contacts.splice(index, 1)[0];
+            this.contacts.unshift(removedContact);
+            }
+
             const changeContactElement = document.getElementById("switch");
             changeContactElement.innerHTML = `
             <img class="avatar" src="${contact.avatar}" alt="${contact.name}">
