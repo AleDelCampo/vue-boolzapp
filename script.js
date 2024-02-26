@@ -18,9 +18,9 @@ const app = Vue.createApp({
             },
             {
                 date: '20/03/2020 16:35:00',
-                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                message: 'Non posso sinceramente.',
                 time: '12:00',
-                status: 'sent'
+                status: 'received'
             }
         ],},
             { name: 'Pluto', lastAccess: '1 day ago', avatar: 'img/avatar_2.jpg', messages: [
@@ -58,7 +58,7 @@ const app = Vue.createApp({
             },
             {
                 date: '20/03/2020 16:35:00',
-                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                message: 'Esci stasera??',
                 time: '12:00',
                 status: 'sent'
             }
@@ -78,7 +78,7 @@ const app = Vue.createApp({
             },
             {
                 date: '20/03/2020 16:35:00',
-                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                message: 'Ricordati chi fa gli anni domani!!',
                 time: '12:00',
                 status: 'sent'
             }
@@ -98,9 +98,9 @@ const app = Vue.createApp({
             },
             {
                 date: '20/03/2020 16:35:00',
-                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                message: 'Devo andare a lavare la macchina',
                 time: '12:00',
-                status: 'sent'
+                status: 'received'
             }
         ],},
             { name: 'Plauto', lastAccess: '1 week ago', avatar: 'img/avatar_5.jpg', messages: [
@@ -118,7 +118,7 @@ const app = Vue.createApp({
             },
             {
                 date: '20/03/2020 16:35:00',
-                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                message: 'Vieni al cinema stasera??',
                 time: '12:00',
                 status: 'sent'
             }
@@ -138,7 +138,7 @@ const app = Vue.createApp({
             },
             {
                 date: '20/03/2020 16:35:00',
-                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                message: 'Ciao....',
                 time: '12:00',
                 status: 'sent'
             }
@@ -158,7 +158,7 @@ const app = Vue.createApp({
             },
             {
                 date: '20/03/2020 16:35:00',
-                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                message: 'Come la vuoi la pizza??',
                 time: '12:00',
                 status: 'sent'
             }
@@ -178,7 +178,7 @@ const app = Vue.createApp({
             },
             {
                 date: '20/03/2020 16:35:00',
-                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                message: 'Come va??',
                 time: '12:00',
                 status: 'sent'
             }
@@ -200,10 +200,10 @@ const app = Vue.createApp({
                 date: '20/03/2020 16:35:00',
                 message: 'Mi piacerebbe ma devo andare a fare la spesa.',
                 time: '12:00',
-                status: 'sent'
+                status: 'received'
             }
         ],},
-            { name: 'Plalutena', lastAccess: '2 weeks ago', avatar: 'img/avatar_io.jpg', messages: [
+            { name: 'Plotina', lastAccess: '2 weeks ago', avatar: 'img/avatar_6.jpg', messages: [
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
@@ -218,12 +218,12 @@ const app = Vue.createApp({
             },
             {
                 date: '20/03/2020 16:35:00',
-                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                message: 'Ma hai visto il nuovo episodio??',
                 time: '12:00',
                 status: 'sent'
             }
         ],},
-            { name: 'Plalutena', lastAccess: '2 weeks ago', avatar: 'img/avatar_io.jpg', messages: [
+            { name: 'Pina', lastAccess: '2 weeks ago', avatar: 'img/avatar_io.jpg', messages: [
             {
                 date: '20/03/2020 16:30:00',
                 message: 'Ciao come stai?',
@@ -238,7 +238,7 @@ const app = Vue.createApp({
             },
             {
                 date: '20/03/2020 16:35:00',
-                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                message: 'Ti aspetto....',
                 time: '12:00',
                 status: 'sent'
             }
@@ -332,6 +332,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>`;
 
         chatInterface.innerHTML += ('beforeend', messageHTML);
+        
     }
 //Cambio di icone
     messageInput.addEventListener("input", function() {
@@ -445,22 +446,40 @@ document.addEventListener("DOMContentLoaded", function() {
     const personalAccount = document.getElementById("personal-account");
     const friendAccount= document.getElementById("friend-account");
     const inputCnt= document.getElementById("input-cnt");
+    const topSide= document.getElementById("top-side");
+    const chatInterface = document.getElementById("chat-interface");
+    const contacts = document.querySelectorAll(".contact");
 
+    
+    
     changeThemeButton.addEventListener("click", function() {
+
         if (!themeToggled) {
-            bottomSide.classList.add("toggle-theme");
+            bottomSide.classList.add("botbg");
             personalAccount.classList.add("toggle-theme");
             friendAccount.classList.add("toggle-theme");
             inputCnt.classList.add("toggle-theme");
+            topSide.classList.add("topbg");
+            chatInterface.style.backgroundImage = "url(img/minedark.jpg)";
+            contacts.forEach(contact => {
+                contact.classList.add("toggle-theme");
+            });
             themeToggled = true;
+
         } else {
-            bottomSide.classList.remove("toggle-theme");
+            bottomSide.classList.remove("botbg");
             personalAccount.classList.remove("toggle-theme");
             friendAccount.classList.remove("toggle-theme");
             inputCnt.classList.remove("toggle-theme");
+            topSide.classList.remove("topbg");
+            chatInterface.style.backgroundImage = "url(img/mine.jpg)";
+            contacts.forEach(contact => {
+                contact.classList.remove("toggle-theme");   
+            });
             themeToggled = false;
         }
     });
+    
 });
 
 //Funzione cambio font
@@ -576,7 +595,34 @@ window.addEventListener('resize', function() {
 
 //Responsive, toggle
 function returnToSidebar() {
-    sidebar.style.display = 'block';
-    chat.style.display = 'none';
-    document.getElementById('return-to-sidebar').style.display = 'none';
+    const windowWidth = window.innerWidth;
+    const sidebar = document.getElementById('sidebar');
+    const chat = document.getElementById('chat');
+    const returnBtn = document.getElementById('return-to-sidebar');
+
+    if (windowWidth < 690) {
+        sidebar.style.display = 'block';
+        chat.style.display = 'none';
+    }
 }
+
+//Integrate alcune emoji, purtroppo non ho trovato API realmente utili
+document.addEventListener("DOMContentLoaded", function() {
+    const emojiIcon = document.querySelector(".fa-face-smile");
+    const emojiMenu = document.getElementById("emoji-menu");
+
+    emojiIcon.addEventListener("click", function() {
+        emojiMenu.classList.toggle("show");
+    });
+
+    const emojis = emojiMenu.querySelectorAll(".emoji");
+    emojis.forEach(emoji => {
+        emoji.addEventListener("click", function() {
+            const messageInput = document.getElementById("message-input");
+            const currentMessage = messageInput.value;
+            const emojiChar = this.innerText;
+            messageInput.value = currentMessage + emojiChar;
+            emojiMenu.classList.remove("show");
+        });
+    });
+});

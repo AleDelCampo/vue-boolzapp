@@ -41,6 +41,7 @@
     height: calc(96vh - 196px);
     background-color: #eaeaea;
     overflow-y: scroll;
+    border-bottom-left-radius: 24px;
 }
 
 .search-container {
@@ -96,6 +97,7 @@
 
 #friend-account {
     border-left: 1px solid #d9d9d9;
+    border-top-right-radius: 14px;
 }
 
 #active-notification {
@@ -105,6 +107,7 @@
     display: flex;
     align-items: center;
     background-color: #8edafc;
+    position: relative;
 }
 
 #search-contact {
@@ -180,6 +183,54 @@
     right: 0;
 }
 
+#toggle-button {
+    display: inline-block;
+    background-color: #00b850;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.4s ease;
+    cursor: pointer;  
+}
+
+#toggle-button:hover {
+    background-color: #005411;
+}
+
+#addContactButton {
+    display: inline-block;
+    background-color: #00b850;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.4s ease;
+    cursor: pointer;  
+    position: absolute;
+    right: 4px;
+    top: 24%;
+    padding: 6px 20px 6px;
+}
+
+#addContactButton:hover {
+    background-color: #005411;
+}
+
+#deleteMessages {
+    display: inline-block;
+    background-color: #00b850;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.4s ease;
+    padding: 6px 20px 6px;
+    cursor: pointer;  
+}
+
+#deleteMessages:hover {
+    background-color: #005411;
+}
+
+
 /*CLASSESS*/
 .top-accounts {
     width: 100%;
@@ -203,6 +254,7 @@
     background-color: white;
     border-bottom: 1px solid #eaeaea;
     cursor: pointer;
+    position: relative;
 }
 
 .change-contact {
@@ -312,13 +364,38 @@
     opacity: 1;
 }
 
+.delete-chat-button {
+    background-color: #00b850;
+    padding: 8px;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.4s ease;
+    cursor: pointer;  
+    position: absolute;
+    right: 0;
+}
+
+.delete-chat-button:hover {
+    background-color: #005411;
+}
+
+
+/*THEME*/
 .toggle-theme {
-    color: #fff;
     background-color: gray;
 }
 
-/*SPLASH PAGE*/
+.topbg {
+    background-color: #143011;
+}
 
+.botbg {
+    background-color: black;
+}
+
+
+/*SPLASH PAGE*/
 body, html {
     margin: 0;
     padding: 0;
@@ -332,7 +409,7 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(240, 240, 240, 0.9);
+    background-image: url(img/Boolzapp.png);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -352,7 +429,7 @@ body, html {
     padding: 10px 20px;
     text-decoration: none;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     transition: background-color 0.4s ease;
     cursor: pointer;
 }
@@ -369,8 +446,8 @@ body, html {
     display: block;
 }
 
-/*RESPONSIVE*/
 
+/*RESPONSIVE*/
 @media only screen and (max-width: 768px) {
     
     .app-container {
@@ -402,4 +479,17 @@ body, html {
 #back-icon {
     display: block;
 }
+}
+
+.emoji-menu {
+    display: none;
+    position: absolute;
+    bottom: 60px;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+.emoji-menu.show {
+    display: block;
+    cursor: pointer;
 }

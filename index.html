@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="green-side my-display">
+    <div id="top-side" class="green-side my-display">
         <div class="app-container">
         <div class="row-container">
             <aside id="sidebar">
@@ -43,7 +43,7 @@
                         <i class="icons fa-solid fa-ellipsis-vertical"></i>  
                        
                         <div class="dropdown-menu">
-                            <button id="deleteMessages">Elimina messaggi</button>
+                            <button id="deleteMessages">Refresh Chat</button>
                         </div>
                     </div>
                 </div>
@@ -61,8 +61,11 @@
 
                         <span id="my-access">Attiva notifiche Desktop.</span>
 
-                    </div> 
-
+                    </div>
+                    
+                    <div>
+                        <button id="addContactButton" @click="addContact">Add New<br>Friend</button>
+                    </div>
                 </div>
 
 
@@ -74,7 +77,6 @@
 
                     <div id="search-contacts">
                         <input type="text" id="search-input" oninput="filterContacts(this.value)" placeholder="Cerca o inizia una nuova chat.">
-                        <button id="addContactButton" @click="addContact">+</button>
                         <button id="toggle-button" @click="changeTheme">Cambia tema</button>
                     </div>
 
@@ -88,8 +90,8 @@
                         <div class="column-container">
                             <span class="contact-name">{{ contact.name }}</span>
                             <span class="last-show">{{ getLastMessage(contact) }}</span>
-                            <button class="delete-chat-button" @click="deleteContact(contact)">Elimina Chat</button>
                         </div>
+                        <button class="delete-chat-button" @click="deleteContact(contact)">Delete</button>
                     </div>
                 </div>
             </aside>
@@ -125,6 +127,28 @@
                 <div id="input-cnt" class="input-container">
                     <div>
                         <i class="icons fa-regular fa-face-smile"></i>
+                        <div id="emoji-menu" class="emoji-menu">
+                            <span class="emoji">😀</span>
+                            <span class="emoji">😃</span>
+                            <span class="emoji">😄</span>
+                            <span class="emoji">😊</span>
+                            <span class="emoji">😎</span>
+                            <span class="emoji">😍</span>
+                            <span class="emoji">😂</span>
+                            <span class="emoji">😇</span>
+                            <span class="emoji">😉</span>
+                            <span class="emoji">😜</span>
+                            <span class="emoji">😋</span>
+                            <span class="emoji">😘</span>
+                            <span class="emoji">🤗</span>
+                            <span class="emoji">🤩</span>
+                            <span class="emoji">😬</span>
+                            <span class="emoji">😳</span>
+                            <span class="emoji">😌</span>
+                            <span class="emoji">😅</span>
+                            <span class="emoji">🥳</span>
+                            <span class="emoji">❤️</span>
+                        </div>
                     </div>
 
                     <div class="message-container">
