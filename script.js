@@ -200,7 +200,7 @@ const app = Vue.createApp({
                 date: '20/03/2020 16:35:00',
                 message: 'Mi piacerebbe ma devo andare a fare la spesa.',
                 time: '12:00',
-                status: 'received'
+                status: 'sent'
             }
         ],},
             { name: 'Plotina', lastAccess: '2 weeks ago', avatar: 'img/avatar_6.jpg', messages: [
@@ -246,6 +246,57 @@ const app = Vue.createApp({
         ],
       };
     }, mounted() { 
+        const gruppoContact = {
+            name: 'Gruppo',
+            lastAccess: 'Online',
+            avatar: 'img/avatar_io.jpg',
+            messages: [
+                {
+                    date: '20/03/2020 16:30:00',
+                    message: 'Come state Ragazzi?',
+                    time: '12:00',
+                    status: 'sent'
+                },
+                {
+                    date: '20/03/2020 16:30:55',
+                    message: 'Bene grazie! Stasera ci vediamo?',
+                    time: '12:04',
+                    status: 'received'
+                },
+                {
+                    date: '20/03/2020 16:35:00',
+                    message: 'Ti aspetto....',
+                    time: '12:12',
+                    status: 'sent'
+                },
+                {
+                    date: '20/03/2020 16:35:00',
+                    message: 'Non posso venire io',
+                    time: '12:23',
+                    status: 'received'
+                },
+                {
+                    date: '20/03/2020 16:35:00',
+                    message: 'Io porto la pizzaaaa',
+                    time: '12:38',
+                    status: 'received'
+                },
+                {
+                    date: '20/03/2020 16:35:00',
+                    message: 'Io ho la febbre 😌',
+                    time: '12:40',
+                    status: 'received'
+                }
+            ] };
+        // Aggiungi solo 5; contatti al div "Gruppo Boolean"
+        
+        const gruppoBooleanDiv = document.querySelector('#gruppo-boolean');
+        const gruppoContactElement = this.createContactElement(gruppoContact);
+        gruppoBooleanDiv.appendChild(gruppoContactElement);
+
+        const contactElement = document.createElement('div');
+        gruppoBooleanDiv.appendChild(contactElement);
+    
         // Funzione hook per aggiungere un event listener al pulsante "Aggiungi Contatto"
         const addContactButton = document.getElementById("addContactButton");
 
@@ -263,6 +314,28 @@ const app = Vue.createApp({
             }
         });
     }, methods: {
+        createContactElement(contact) {
+            const contactContainer = document.createElement('div');
+            contactContainer.classList.add('contact');
+    
+            const avatarImg = document.createElement('img');
+            avatarImg.classList.add('avatar');
+            avatarImg.src = contact.avatar;
+            avatarImg.alt = contact.name;
+            contactContainer.appendChild(avatarImg);
+    
+            const nameSpan = document.createElement('span');
+            nameSpan.classList.add('contact-name');
+            nameSpan.textContent = contact.name;
+            contactContainer.appendChild(nameSpan);
+
+            contactContainer.addEventListener('click', () => {
+                this.showContact(contact);
+            });
+    
+            return contactContainer;
+        },
+
         // Metodo per eliminare un contatto
         deleteContact(contact) {
             const index = this.contacts.indexOf(contact);
@@ -270,6 +343,7 @@ const app = Vue.createApp({
                 this.contacts.splice(index, 1);
             }
         },
+        
         // Metodo per ottenere l'ultimo messaggio di un contatto
         getLastMessage(contact) {
             const lastMessage = contact.messages[contact.messages.length - 1];
@@ -281,13 +355,14 @@ const app = Vue.createApp({
         },
         // Metodo per visualizzare i messaggi di un contatto selezionato
         showContact(contact) {
+            //Controllo che al click di un contact sale in cima
             const index = this.contacts.indexOf(contact);
             
             if (index !== -1) {
             const removedContact = this.contacts.splice(index, 1)[0];
             this.contacts.unshift(removedContact);
-            }
-
+            }   
+            
             const changeContactElement = document.getElementById("switch");
             changeContactElement.innerHTML = `
             <img class="avatar" src="${contact.avatar}" alt="${contact.name}">
@@ -303,8 +378,10 @@ const app = Vue.createApp({
                 messagesHTML += 
                 `<div id="disappear" class="column-container ${messageClass}">
                 <span class="m-4">${message.message} <i class="column-container my-accordion fa-solid fa-chevron-down"><div class="my-accordion">
+                <div id="msgbutton">
                 <button id="deleteButton">Elimina Contenuto</button>
                 <button id="showTimeButton" onclick="showDateTime('${message.time}')">Mostra Data e Ora</button>
+                </div>
                 </div></i></span>
                 <span class="m-4 msg-time">${message.time}</span>
                 </div>`;
@@ -331,8 +408,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const messageHTML = `<div id="disappear" class="column-container ${messageClass}">
             <span class="m-4">${message} <i class="column-container my-accordion fa-solid fa-chevron-down"><div class="my-accordion">
+            <div id="msgbutton">
             <button id="deleteButton">Elimina Contenuto</button>
             <button id="showTimeButton" onclick="showDateTime('${currentTime}')">Mostra Data e Ora</button>
+            </div>
             </div></i></span>
             <span class="m-4 msg-time">${currentTime}</span>
             </div>`;
@@ -342,6 +421,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 //Cambio di icone
     messageInput.addEventListener("input", function() {
+        
         if (this.value.trim() === "") {
             micIcon.style.display = "inline-block"; 
             sendIcon.style.display = "none";
@@ -632,3 +712,4 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
