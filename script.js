@@ -245,16 +245,43 @@ const app = Vue.createApp({
         ],},
         ],
       };
+    }, mounted() { 
+        // Funzione hook per aggiungere un event listener al pulsante "Aggiungi Contatto"
+        const addContactButton = document.getElementById("addContactButton");
+
+        addContactButton.addEventListener("click", () => {
+            const newContactName = prompt("Inserisci il nome del nuovo contatto:");
+            if (newContactName) {
+                const avatarNumber = Math.floor(Math.random() * 7) + 1;
+                const newContact = {
+                    name: newContactName,
+                    lastAccess: 'Online',
+                    avatar: `img/avatar_${avatarNumber}.jpg`,
+                    messages: [],
+                };
+                this.contacts.push(newContact);
+            }
+        });
     }, methods: {
+        // Metodo per eliminare un contatto
+        deleteContact(contact) {
+            const index = this.contacts.indexOf(contact);
+            if (index > -1) {
+                this.contacts.splice(index, 1);
+            }
+        },
+        // Metodo per ottenere l'ultimo messaggio di un contatto
         getLastMessage(contact) {
             const lastMessage = contact.messages[contact.messages.length - 1];
             if (lastMessage) {
                 return `${lastMessage.status === 'sent' ? 'Sent: ' : 'Received: '} ${lastMessage.message}`;
             } else {
                 return 'No messages';
-            }/*da vedere bene ancora*/
+            }
         },
+        // Metodo per visualizzare i messaggi di un contatto selezionato
         showContact(contact) {
+            
             const changeContactElement = document.getElementById("switch");
             changeContactElement.innerHTML = `
             <img class="avatar" src="${contact.avatar}" alt="${contact.name}">
@@ -282,6 +309,8 @@ const app = Vue.createApp({
 
 app.mount('#app');
 
+
+//Funzione per aggiungere nuovi contatti
 document.addEventListener("DOMContentLoaded", function() {
     const messageInput = document.getElementById("message-input");
     const micIcon = document.getElementById("mic-icon");
@@ -289,7 +318,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const chatInterface = document.getElementById("messages");
 
     let messageSent = false;
-
+//Funzione per l'invio del messaggio
     function appendMessage(message, status) {
         const messageClass = status === 'sent' ? 'sent-message' : 'received-message';
         const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -304,7 +333,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         chatInterface.innerHTML += ('beforeend', messageHTML);
     }
-
+//Cambio di icone
     messageInput.addEventListener("input", function() {
         if (this.value.trim() === "") {
             micIcon.style.display = "inline-block"; 
@@ -315,7 +344,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    
+//Icona di invio messaggio
     sendIcon.addEventListener("click", function() {
         const messageContent = messageInput.value.trim();
         if (messageContent !== '') {
@@ -324,7 +353,7 @@ document.addEventListener("DOMContentLoaded", function() {
             messageSent = true;
         }
     });
-
+//Enter per invio messaggio
     messageInput.addEventListener("keypress", function(sending) {
         if (sending.key === "Enter") {
             micIcon.style.display = "inline-block";
@@ -338,6 +367,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+//Funzione per le risposte generate dal PC
     const randomResponses = ['Va bene', 'Capito', 'Perfetto', 'Ho capito'];
 
     setInterval(function() {
@@ -348,14 +378,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }, 1000);
 
-    messageInput.addEventListener("input", function() {
-        if (this.value === "") {
-            micIcon.style.display = "inline-block";
-            sendIcon.style.display = "none";
-        }
-    });
 });
 
+//Funzione per filtro contatti
 function filterContacts(searchTerm) {
     const contacts = document.querySelectorAll('.contact');
     contacts.forEach(contact => {
@@ -368,6 +393,7 @@ function filterContacts(searchTerm) {
     });
 }
 
+//Funzione per eliminare messaggio
 document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener('click', function(cancel) {
         if (cancel.target.id === 'deleteButton') {
@@ -378,12 +404,14 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+//Funzione per mostrare orario messaggio
 function showDateTime(time) {
     const dateTimeString = new Date(`01/01/2022 ${time}`).toLocaleString('it-IT', { timeZone: 'Europe/Rome' });
     
     alert(`Data e ora del messaggio:\n${dateTimeString}`);
 }
 
+//Funzione per eliminare messaggio
 document.addEventListener("DOMContentLoaded", function() {
     let mySelectedContact = null;
 
@@ -408,6 +436,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+//Funzione cambio tema
 document.addEventListener("DOMContentLoaded", function() {
     let themeToggled = false;
 
@@ -433,3 +462,121 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+//Funzione cambio font
+document.addEventListener("DOMContentLoaded", function() {
+    let fontSizeState = 0;
+
+    const clickableIcon = document.querySelector(".icons.fa-circle-notch");
+
+    clickableIcon.addEventListener("click", function() {
+        fontSizeState = (fontSizeState + 1) % 3;
+
+        if (fontSizeState === 1) {
+            document.body.style.fontSize = "110%";
+        } else if (fontSizeState === 2) {
+            document.body.style.fontSize = "120%";
+        } else {
+            document.body.style.fontSize = "100%";
+        }
+    });
+});
+
+//SplashPage
+document.addEventListener("DOMContentLoaded", function() {
+    let splashContainer = document.getElementById("splashContainer");
+    let enterButton = document.getElementById("enterButton");
+
+    enterButton.addEventListener("click", function() {
+        splashContainer.style.display = "none";
+    });
+});
+
+//Funzione per menu icona
+document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener('click', function(event) {
+        const target = event.target;
+
+        if (target.classList.contains('fa-ellipsis-vertical')) {
+            const dropdownMenu = target.nextElementSibling;
+            dropdownMenu.classList.toggle('show');
+        }
+
+        if (target.id === 'deleteMessages') {
+            const messagesContainer = document.getElementById('messages');
+            messagesContainer.innerHTML = ''; 
+        }
+    });
+});
+
+//Funzione per lo "Sta Scrivendo...."
+document.addEventListener("DOMContentLoaded", function() {
+    let isTypingTimeout;
+
+    function setTypingStatus(isTyping) {
+        const switchElement = document.getElementById("switch");
+
+        if (isTyping) {
+            switchElement.querySelector(".last-show").innerText = "Sta scrivendo....";
+        } else {
+           
+            setTimeout(function() {
+                switchElement.querySelector(".last-show").innerText = "Online";
+            }, 1000); 
+        }
+    }
+
+    const sending = document.getElementById("send-icon");
+    const messageInput = document.getElementById("message-input");
+
+    sending.addEventListener("click", sendMessage);
+    messageInput.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            sendMessage();
+        }
+    });
+
+    function sendMessage() {
+        clearTimeout(isTypingTimeout);
+        setTypingStatus(true);
+
+        isTypingTimeout = setTimeout(function() {
+            setTypingStatus(false);
+        }, 1000); 
+    }
+});
+
+//Responsive
+const sidebar = document.getElementById('sidebar');
+const chat = document.getElementById('chat');
+const contacts = document.getElementsByClassName('contact');
+
+for (let contact of contacts) {
+    contact.addEventListener('click', function() {
+        if (window.innerWidth < 690) {
+            sidebar.style.display = 'none';
+            chat.style.display = 'block';
+        }
+    });
+}
+
+window.addEventListener('resize', function() {
+    const windowWidth = window.innerWidth;
+    const sidebar = document.getElementById('sidebar');
+    const chat = document.getElementById('chat');
+
+    if (windowWidth <= 690) {
+        sidebar.style.display = 'block';
+        chat.style.display = 'none';
+    } else {
+        sidebar.style.display = 'block';
+        chat.style.display = 'block';
+    }
+});
+
+//Responsive, toggle
+function returnToSidebar() {
+    sidebar.style.display = 'block';
+    chat.style.display = 'none';
+    document.getElementById('return-to-sidebar').style.display = 'none';
+}

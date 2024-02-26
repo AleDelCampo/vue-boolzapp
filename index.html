@@ -11,6 +11,14 @@
 </head>
 <body>
 
+    <div class="splash-container" id="splashContainer">
+        <div class="splash-content">
+            <h1>Benvenuto su Boolzapp</h1>
+            <p>Entra nella nostra piattaforma</p>
+            <button id="enterButton" class="btn">Entra nel sito</button>
+        </div>
+    </div>
+
     <div class="green-side my-display">
         <div class="app-container">
         <div class="row-container">
@@ -33,7 +41,10 @@
                         <i class="icons fa-solid fa-message"></i>
 
                         <i class="icons fa-solid fa-ellipsis-vertical"></i>  
-
+                       
+                        <div class="dropdown-menu">
+                            <button id="deleteMessages">Elimina messaggi</button>
+                        </div>
                     </div>
                 </div>
 
@@ -63,6 +74,7 @@
 
                     <div id="search-contacts">
                         <input type="text" id="search-input" oninput="filterContacts(this.value)" placeholder="Cerca o inizia una nuova chat.">
+                        <button id="addContactButton" @click="addContact">+</button>
                         <button id="toggle-button" @click="changeTheme">Cambia tema</button>
                     </div>
 
@@ -75,7 +87,8 @@
                         <img class="avatar" :src="contact.avatar" :alt="contact.name">
                         <div class="column-container">
                             <span class="contact-name">{{ contact.name }}</span>
-                            <span class="last-show">{{ getLastMessage(contact) }}</span> <!--da vedere bene ancora-->
+                            <span class="last-show">{{ getLastMessage(contact) }}</span>
+                            <button class="delete-chat-button" @click="deleteContact(contact)">Elimina Chat</button>
                         </div>
                     </div>
                 </div>
@@ -96,7 +109,7 @@
                         <i class="icons fa-solid fa-magnifying-glass"></i>
 
                         <i class="icons fa-solid fa-paperclip"></i>
-
+                        <i class="icons fas fa-arrow-left" onclick="returnToSidebar()"></i>
                         <i class="icons fa-solid fa-ellipsis-vertical"></i>  
 
                     </div>
@@ -105,7 +118,6 @@
 
                 <div id="chat-interface">
                     <div id="messages">
-                        
                     </div>
                 </div>
 
@@ -116,7 +128,7 @@
                     </div>
 
                     <div class="message-container">
-                        <input type="text" id="message-input" placeholder="Seleziona un contatto....">
+                        <input id="message-input" type="text" placeholder="Seleziona prima un contatto...." @input="handleTyping(selectedContact)">
                     </div>
 
                     <div>
